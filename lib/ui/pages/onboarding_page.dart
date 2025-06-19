@@ -1,3 +1,4 @@
+import 'package:anime_streaming_app/ui/pages/sign_in_page.dart';
 import 'package:anime_streaming_app/ui/widgets/button_widget.dart';
 import 'package:anime_streaming_app/ui/widgets/layout_widget.dart';
 import 'package:flutter/material.dart';
@@ -42,6 +43,10 @@ class _OnboardingPageState extends State<OnboardingPage> {
         duration: Duration(milliseconds: 300),
         curve: Curves.easeInOut,
       );
+    } else {
+      Navigator.of(
+        context,
+      ).push(MaterialPageRoute(builder: (context) => SignInPage()));
     }
   }
 

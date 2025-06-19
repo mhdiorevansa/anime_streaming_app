@@ -9,7 +9,7 @@ class LayoutWidget extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 24, vertical: 60),
+        padding: EdgeInsets.only(left: 24, right: 24, top: 60, bottom: 10),
         child: child,
       ),
     );
