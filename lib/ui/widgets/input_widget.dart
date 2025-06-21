@@ -17,7 +17,7 @@ class InputWidget extends StatefulWidget {
     this.isPassword = false,
     this.isDate = false,
     this.onDateSelected,
-    this.controller,
+    this.controller
   });
 
   @override
@@ -25,6 +25,22 @@ class InputWidget extends StatefulWidget {
 }
 
 class _InputWidgetState extends State<InputWidget> {
+  late final TextEditingController controller;
+
+  @override
+  void initState() {
+    super.initState();
+    controller = widget.controller ?? TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    if (widget.controller == null) {
+      controller.dispose();
+    }
+    super.dispose();
+  }
+
   Future<void> selectDate(BuildContext context) async {
     final picked = await showDatePicker(
       context: context,
@@ -33,7 +49,7 @@ class _InputWidgetState extends State<InputWidget> {
       lastDate: DateTime(2300),
     );
     if (picked != null) {
-      widget.controller?.text = "${picked.day}/${picked.month}/${picked.year}";
+      controller.text = "${picked.day}/${picked.month}/${picked.year}";
       if (widget.onDateSelected != null) {
         widget.onDateSelected!(picked);
       }
@@ -54,7 +70,7 @@ class _InputWidgetState extends State<InputWidget> {
         ),
         Gap(8),
         TextField(
-          controller: widget.controller,
+          controller: controller,
           style: GoogleFonts.plusJakartaSans(
             fontSize: 12,
             color: Color(0xFF19437d),
