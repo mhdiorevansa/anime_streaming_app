@@ -96,7 +96,7 @@ class _SignUpPageState extends State<SignUpPage> {
             ),
             Gap(12),
             ButtonWidget(onPressed: handleSignUp, text: 'Continue'),
-            Gap(130),
+            Gap(43),
             InlineTextLinkWidget(
               normalText: 'Already have an account?',
               linkText: 'Sign In',
