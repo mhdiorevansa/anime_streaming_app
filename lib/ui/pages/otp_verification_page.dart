@@ -42,7 +42,12 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
       ).showSnackBar(SnackBar(content: Text('Please fill in all fields')));
       return;
     } else {
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text('OTP verified successfully')));
+      await Future.delayed(Duration(seconds: 3));
       Navigator.of(
+        // ignore: use_build_context_synchronously
         context,
       ).pushReplacement(MaterialPageRoute(builder: (context) => SignInPage()));
     }

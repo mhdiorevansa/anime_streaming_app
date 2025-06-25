@@ -1,3 +1,4 @@
+import 'package:anime_streaming_app/ui/pages/forgot_password_page.dart';
 import 'package:anime_streaming_app/ui/pages/onboarding_page.dart';
 import 'package:anime_streaming_app/ui/pages/otp_verification_page.dart';
 import 'package:anime_streaming_app/ui/pages/sign_up_page.dart';
@@ -74,12 +75,19 @@ class _SignInPageState extends State<SignInPage> {
             Gap(28),
             ButtonWidget(onPressed: handleLogin, text: 'Sign In'),
             Gap(20),
-            Text(
-              'Forgot Password',
-              style: GoogleFonts.plusJakartaSans(
-                fontSize: 12,
-                fontWeight: FontWeight.w600,
-                color: Color(0xFF19437d),
+            GestureDetector(
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => ForgotPasswordPage()),
+                );
+              },
+              child: Text(
+                'Forgot Password',
+                style: GoogleFonts.plusJakartaSans(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w600,
+                  color: Color(0xFF19437d),
+                ),
               ),
             ),
             Gap(28),
