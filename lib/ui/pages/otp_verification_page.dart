@@ -78,10 +78,12 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                     style: GoogleFonts.plusJakartaSans(
                       fontSize: 14,
                       fontWeight: FontWeight.bold,
+                      color: Color(0xFF4C4E55),
                     ),
                   ),
                 ],
               ),
+              textAlign: TextAlign.center,
             ),
             Gap(40),
             OtpBoxWidget(controllers: controllers, focusNodes: focusNodes),
