@@ -1,4 +1,5 @@
 import 'package:anime_streaming_app/ui/pages/onboarding_page.dart';
+import 'package:anime_streaming_app/ui/pages/otp_verification_page.dart';
 import 'package:anime_streaming_app/ui/pages/sign_up_page.dart';
 import 'package:anime_streaming_app/ui/widgets/auth_social_buttons_widget.dart';
 import 'package:anime_streaming_app/ui/widgets/button_widget.dart';
@@ -35,6 +36,10 @@ class _SignInPageState extends State<SignInPage> {
         context,
       ).showSnackBar(SnackBar(content: Text('Please fill in all fields')));
       return;
+    } else {
+      Navigator.of(
+        context,
+      ).push(MaterialPageRoute(builder: (context) => OtpVerificationPage()));
     }
     // continue with sign in logic
   }
