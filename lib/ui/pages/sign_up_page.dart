@@ -1,3 +1,4 @@
+import 'package:anime_streaming_app/ui/pages/create_profile_page.dart';
 import 'package:anime_streaming_app/ui/pages/sign_in_page.dart';
 import 'package:anime_streaming_app/ui/widgets/button_widget.dart';
 import 'package:anime_streaming_app/ui/widgets/inline_text_link_widget.dart';
@@ -40,6 +41,10 @@ class _SignUpPageState extends State<SignUpPage> {
         context,
       ).showSnackBar(SnackBar(content: Text('Please fill in all fields')));
       return;
+    } else {
+      Navigator.of(
+        context,
+      ).push(MaterialPageRoute(builder: (context) => CreateProfilePage()));
     }
     // continue with sign up logic
   }
@@ -55,7 +60,9 @@ class _SignUpPageState extends State<SignUpPage> {
               onTap: () {
                 Navigator.of(
                   context,
-                ).push(MaterialPageRoute(builder: (context) => SignInPage()));
+                ).push(
+                  MaterialPageRoute(builder: (context) => CreateProfilePage()),
+                );
               },
             ),
             Gap(55),
