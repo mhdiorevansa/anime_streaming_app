@@ -1,3 +1,4 @@
+import 'package:anime_streaming_app/ui/pages/ready_to_watch_page.dart';
 import 'package:anime_streaming_app/ui/pages/sign_up_page.dart';
 import 'package:anime_streaming_app/ui/widgets/button_widget.dart';
 import 'package:anime_streaming_app/ui/widgets/input_widget.dart';
@@ -40,6 +41,11 @@ class _CreateProfilePageState extends State<CreateProfilePage> {
       ScaffoldMessenger.of(
         context,
       ).showSnackBar(SnackBar(content: Text('Please fill in all fields')));
+      return;
+    } else {
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (context) => ReadyToWatchPage()),
+      );
     }
   }
 
@@ -74,7 +80,11 @@ class _CreateProfilePageState extends State<CreateProfilePage> {
               child: Icon(Icons.person, size: 80, color: Color(0xFFD9D9D9)),
             ),
             Gap(36),
-            InputWidget(lable: 'Profile Name', placeholder: 'John Doe'),
+            InputWidget(
+              lable: 'Profile Name',
+              placeholder: 'John Doe',
+              controller: profileNameController,
+            ),
             Gap(36),
             ...List.generate(switchOptions.length, (index) {
               return Column(
